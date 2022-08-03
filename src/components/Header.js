@@ -16,8 +16,8 @@ class Header extends Component {
   }
 }
 
-const mapStateToProps = (storage) => ({
-  email: storage.user.email,
+const mapStateToProps = (state) => ({
+  email: state.user.email,
 });
 
 Header.propTypes = {

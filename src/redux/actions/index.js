@@ -1,3 +1,11 @@
+// import API from '../../API';
+
 export const emailAction = (email) => ({ type: 'EMAIL', email });
 
-export const passwordAction = (value) => ({ type: 'PASSWORD', value });
+export const currenciesAction = (currencies) => ({ type: 'CURRENCIES', currencies });
+
+/* export const Coins = () => async () => {
+  const data = await API();
+  const currencies = Object.keys(data).filter((currencyName) => currencyName !== 'USDT');
+  dispatch(CoinsAction(currencies));
+}; */
