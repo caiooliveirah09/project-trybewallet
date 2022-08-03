@@ -29,7 +29,6 @@ class Login extends React.Component {
     if (email.match(auth)) {
       return true;
     }
-    return false;
   }
 
   checkPassword = () => {
@@ -38,7 +37,6 @@ class Login extends React.Component {
     if (password.length >= min) {
       return true;
     }
-    return false;
   }
 
   handleChange = (event) => {
