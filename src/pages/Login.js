@@ -1,5 +1,4 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { emailAction } from '../redux/actions';
@@ -10,7 +9,6 @@ class Login extends React.Component {
     this.state = {
       email: '',
       password: '',
-      logged: false,
       disabled: true,
     };
   }
@@ -48,18 +46,15 @@ class Login extends React.Component {
 
   login = (event) => {
     event.preventDefault();
-    this.setState({ logged: true });
-    const { emailValue } = this.props;
+    const { emailValue, history } = this.props;
     const { email } = this.state;
     emailValue(email);
     console.log(emailValue);
+    history.push('./carteira');
   }
 
   render() {
-    const { email, password, logged, disabled } = this.state;
-    if (logged) {
-      return <Redirect to="/carteira" />;
-    }
+    const { email, password, disabled } = this.state;
 
     return (
       <form>
@@ -95,6 +90,9 @@ const mapDispatchToProps = (dispatch) => ({
 
 Login.propTypes = {
   emailValue: PropTypes.func.isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
 export default connect(null, mapDispatchToProps)(Login);
