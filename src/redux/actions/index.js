@@ -6,6 +6,8 @@ export const currenciesAction = (currencies) => ({ type: 'CURRENCIES', currencie
 
 const expensesAction = (expenses) => ({ type: 'EXPENSES', expenses });
 
+export const deleteAction = (id) => ({ type: 'DELETE', id });
+
 export default expensesAction;
 
 /* export const Coins = () => async () => {
